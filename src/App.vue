@@ -67,13 +67,12 @@
         </dl>
         <hr class="w-full border-t border-gray-600 my-4" />
       </template>
-      <app-graph      
+      <app-graph
         :normalizedGraph="normalizedGraph"
         :selectedTicker="selectedTicker"
         @close-graph="selectedTicker = null"
         @maxGraphElements="calculateGraphElements"
       ></app-graph>
-
     </div>
   </div>
 </template>
@@ -209,7 +208,7 @@ export default {
       this.tickers
         .filter((t) => t.name === tickerName)
         .forEach((t) => {
-           if (t === this.selectedTicker) {
+          if (t === this.selectedTicker) {
             this.graph.push(payload.newPrice);
             while (this.graph.length > this.maxGraphElements) {
               this.graph.shift();

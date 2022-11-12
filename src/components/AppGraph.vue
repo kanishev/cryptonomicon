@@ -57,8 +57,8 @@ export default {
       required: true,
     },
   },
-  mounted(){
-    window.addEventListener("resize", this.calculateMaxGraphElements)
+  mounted() {
+    window.addEventListener("resize", this.calculateMaxGraphElements);
   },
   beforeUnmount() {
     window.removeEventListener("resize", this.calculateMaxGraphElements);
@@ -74,18 +74,16 @@ export default {
         return;
       }
 
-      this.maxGraphElements =
-        this.$refs.graph.clientWidth / 38;
-      
-      
-      this.$emit('maxGraphElements', this.maxGraphElements)
+      this.maxGraphElements = this.$refs.graph.clientWidth / 38;
+
+      this.$emit("maxGraphElements", this.maxGraphElements);
     },
   },
-  watch:{
-  selectedTicker(){
+  watch: {
+    selectedTicker() {
       this.$nextTick().then(this.calculateMaxGraphElements);
-    }
-  }
+    },
+  },
 };
 </script>
 

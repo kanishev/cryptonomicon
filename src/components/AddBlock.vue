@@ -7,7 +7,7 @@
         >
         <div class="mt-1 relative rounded-md shadow-md">
           <input
-          ref="input"
+            ref="input"
             v-model="ticker"
             @keydown.enter="add"
             type="text"
@@ -19,30 +19,30 @@
         </div>
       </div>
     </div>
-   <add-button @click="add"></add-button>
+    <add-button @click="add"></add-button>
   </section>
 </template>
 
 <script>
-import AddButton from './AddButton'
+import AddButton from "./AddButton";
 
 export default {
   emits: {
-    'add-ticker': value => value ? typeof value === 'string' : false
+    "add-ticker": (value) => (value ? typeof value === "string" : false),
   },
-  data(){
+  data() {
     return {
-      ticker: ''
-    }
+      ticker: "",
+    };
   },
   methods: {
-    add(){
-      this.$emit('add-ticker', this.ticker)
-    }
+    add() {
+      this.$emit("add-ticker", this.ticker);
+    },
   },
   components: {
-    AddButton
-  }
+    AddButton,
+  },
 };
 </script>
 
